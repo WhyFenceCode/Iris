@@ -18,6 +18,9 @@ import net.minecraft.network.chat.TextColor;
 import org.jetbrains.annotations.Nullable;
 import org.lwjgl.glfw.GLFW;
 
+//To Debug
+import net.irisshaders.iris.Iris;
+
 import java.util.Optional;
 
 public abstract class BaseOptionElementWidget<T extends OptionMenuElement> extends CommentedElementWidget<T> {
@@ -173,8 +176,10 @@ public abstract class BaseOptionElementWidget<T extends OptionMenuElement> exten
 			}
 			if (!refresh) {
 				if (button == GLFW.GLFW_MOUSE_BUTTON_1) {
+					Iris.logger.info("Left Mouse Button");
 					refresh = applyNextValue();
 				} else {
+					Iris.logger.info("Right Mouse Button");
 					refresh = applyPreviousValue();
 				}
 			}
